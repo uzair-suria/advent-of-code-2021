@@ -9,12 +9,8 @@ const input = dataInput.split("\n").map((val) => parseInt(val));
 
 let count = 0;
 for (let i = 1; i < input.length; i++) {
-  const curr = input[i];
-  const prev = input[i - 1];
-  if (curr > prev) {
+  if (input[i] > input[i - 1]) {
     count++;
-    console.log(typeof curr);
-    console.log(`${curr} > ${prev}, count: ${count}, index: ${i}`);
   }
 }
 
