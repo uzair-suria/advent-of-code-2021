@@ -44,8 +44,23 @@ const columnFreqMapper = (array, targetCol) => {
 
   return colMapping;
 };
-// console.log(dataInput);
 
+/**
+ * This function accpets a nested array and a target column number as its parameters.
+ * The array must be of the form `[["1", "1", "0", "1"]...]`. It evaluates the bits in the
+ * targeted column and generates a new array binary arrays that contains only the number
+ * with most frequency in the targeted column.
+ *
+ * The function then call itself with the new `array` and incremented `targetColumn`.
+ *
+ * If
+ * * `targetColumn` exceeds the lenght of binary number bits, it is reset to 1
+ * * new `array` has only one element, then the function stops calling itself and returns the
+ * final binary number
+ * @param {[string[]]} binaryArray Array of string arrays representing binary representation
+ * @param {number} targetColumn column/bit that needs to be targeted
+ * @returns binary string that represents the oxygen generator string
+ */
 const oxBitCriteria = (binaryArray, targetColumn) => {
   if (targetColumn > binaryArray[0].length) targetColumn = 1;
 
@@ -69,6 +84,22 @@ const oxBitCriteria = (binaryArray, targetColumn) => {
   }
 };
 
+/**
+ * This function accpets a nested array and a target column number as its parameters.
+ * The array must be of the form `[["1", "1", "0", "1"]...]`. It evaluates the bits in the
+ * targeted column and generates a new array binary arrays that contains only the number
+ * with least frequency in the targeted column.
+ *
+ * The function then call itself with the new `array` and incremented `targetColumn`.
+ *
+ * If
+ * * `targetColumn` exceeds the lenght of binary number bits, it is reset to 1
+ * * new `array` has only one element, then the function stops calling itself and returns the
+ * final binary number
+ * @param {[string[]]} binaryArray Array of string arrays representing binary representation
+ * @param {number} targetColumn column/bit that needs to be targeted
+ * @returns binary string that represents the oxygen generator string
+ */
 const co2BitCriteria = (binaryArray, targetColumn) => {
   let binaryString = "";
   if (targetColumn > binaryArray[0].length) targetColumn = 1;
